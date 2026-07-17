@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "unstop-server": {
+      "command": "C:\\Users\\vinot\\OneDrive\\Desktop\\neounpack\\unstop-mcp-server\\venv\\Scripts\\python.exe",
+      "args": [
+        "C:\\Users\\vinot\\OneDrive\\Desktop\\neounpack\\unstop-mcp-server\\run.py",
+        "--transport",
+        "stdio"
+      ]
+    }
+  }
+}
