@@ -1,5 +1,4 @@
-# Unstop MCP Server 🚀
-
+# Unstop MCP Server 
 Hey there! Welcome to the Unstop MCP Server. 
 
 I built this project to act as a bridge between the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) and Unstop's platform. Essentially, this server gives your favorite AI assistants (like Claude Desktop or Cursor) the "hands" and "eyes" to discover contests, track user participation, and pull analytics directly from Unstop.
