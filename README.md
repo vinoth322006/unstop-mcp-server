@@ -50,10 +50,10 @@ irm https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/master/get.
 curl -LsSf https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/master/get.sh | sh
 ```
 
-**Already use uv or pipx?**
+**Already use uv or pipx?** (`pipx install` works the same way)
 
 ```sh
-uv tool install git+https://github.com/vinoth322006/unstop-mcp-server   # or: pipx install git+https://…
+uv tool install git+https://github.com/vinoth322006/unstop-mcp-server
 unstop-mcp setup
 ```
 

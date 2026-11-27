@@ -42,4 +42,5 @@ def notes(version: str, changelog: str) -> str:
 
 
 if __name__ == "__main__":
-    sys.stdout.write(notes(sys.argv[1], (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")))
+    text = notes(sys.argv[1], (ROOT / "CHANGELOG.md").read_text(encoding="utf-8"))
+    sys.stdout.buffer.write(text.encode("utf-8"))  # UTF-8 even where the console default is not (Windows)
