@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import logging
 import os
+import sys
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -80,7 +81,7 @@ def downloads_dir() -> Path:
     """The user's real Downloads folder. Windows lets users move it to another drive, so ask the OS:
     the User Shell Folders registry key on Windows, XDG_DOWNLOAD_DIR on Linux, ~/Downloads elsewhere."""
     home = Path.home()
-    if os.name == "nt":
+    if sys.platform == "win32":  # (not os.name: mypy only narrows platform checks written this way)
         try:
             import winreg
 
