@@ -98,7 +98,7 @@ docker exec -it unstop-mcp unstop-mcp keys create --tenant asha --scopes unstop:
 ```
 
 Clients connect to `http(s)://your-host/mcp` with `Authorization: Bearer usk_…`. Put a TLS proxy in front.
-See the README section *Run it on a server* for details.
+See [Run it for a team](README.md#run-it-for-a-team) in the README for details.
 
 ---
 

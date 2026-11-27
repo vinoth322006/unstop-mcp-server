@@ -45,12 +45,15 @@ jobs:
     needs: windows
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with: { name: windows, path: dist }
+      - name: Release notes from CHANGELOG.md
+        run: python3 packaging/release_notes.py "${GITHUB_REF_NAME}" > notes.md
       - uses: softprops/action-gh-release@v2
         with:
           files: dist/*
-          generate_release_notes: true
+          body_path: notes.md
 
   docker:
     needs: test

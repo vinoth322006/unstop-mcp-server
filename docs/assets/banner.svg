@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 300" width="1280" height="300" role="img" aria-labelledby="t d">
+  <title id="t">Unstop MCP</title>
+  <desc id="d">Ask your AI assistant about hackathons, internships, jobs and competitions on Unstop.</desc>
+  <style>
+    .bg { fill: #f5f8ff; stroke: #dbe4fb; }
+    .title { fill: #0b1b3f; }
+    .text { fill: #4a5874; }
+    .chip { fill: #ffffff; stroke: #cfdaf7; }
+    .chiptext { fill: #1c4ed8; }
+    .dot { fill: #1c4ed8; opacity: .10; }
+    .card { fill: #ffffff; stroke: #cfdaf7; stroke-width: 1.5; }
+    .line { fill: #c9d5f3; }
+    .accent { fill: #16a34a; }
+    @media (prefers-color-scheme: dark) {
+      .card { fill: #17244f; stroke: #2f4178; }
+      .line { fill: #34467e; }
+      .accent { fill: #4ade80; }
+      .bg { fill: #0e1730; stroke: #23315a; }
+      .title { fill: #f2f5ff; }
+      .text { fill: #a9b6d3; }
+      .chip { fill: #15214a; stroke: #2c3d72; }
+      .chiptext { fill: #9db8ff; }
+      .dot { fill: #9db8ff; opacity: .12; }
+    }
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  </style>
+  <defs>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle class="dot" cx="3" cy="3" r="2"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" x2="1">
+      <stop offset="0.55" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="fademask"><rect width="1280" height="300" fill="url(#fade)"/></mask>
+  </defs>
+
+  <rect class="bg" x="1" y="1" width="1278" height="298" rx="24" stroke-width="2"/>
+  <rect x="1" y="1" width="1278" height="298" rx="24" fill="url(#dots)" mask="url(#fademask)"/>
+
+  <!-- icon: same shape as packaging/icon.png (256 grid, scaled) -->
+  <g transform="translate(72 62) scale(0.6875)">
+    <rect width="256" height="256" rx="56" fill="#1c4ed8"/>
+    <path d="M74 62 V132 A54 54 0 0 0 182 132 V62 H152 V132 A24 24 0 0 1 104 132 V62 Z" fill="#fff"/>
+  </g>
+
+  <!-- abstract stack of listing cards -->
+  <g transform="translate(1036 58)">
+    <g transform="rotate(-6 100 90)" opacity=".55">
+      <rect class="card" x="20" y="0" width="190" height="112" rx="14"/>
+    </g>
+    <g transform="rotate(3 100 90)" opacity=".8">
+      <rect class="card" x="0" y="34" width="190" height="112" rx="14"/>
+    </g>
+    <g transform="translate(-14 66)">
+      <rect class="card" width="200" height="118" rx="14"/>
+      <rect x="16" y="16" width="74" height="20" rx="10" fill="#1c4ed8"/>
+      <rect class="line" x="16" y="50" width="150" height="10" rx="5"/>
+      <rect class="line" x="16" y="70" width="108" height="10" rx="5" opacity=".6"/>
+      <rect class="accent" x="16" y="92" width="60" height="10" rx="5"/>
+      <circle class="accent" cx="176" cy="26" r="7"/>
+    </g>
+  </g>
+
+  <text class="title" x="290" y="128" font-size="64" font-weight="700" letter-spacing="-1">Unstop MCP</text>
+  <text class="text" x="292" y="176" font-size="26">Ask your AI assistant about hackathons, internships, jobs and</text>
+  <text class="text" x="292" y="210" font-size="26">competitions on Unstop, and keep track of your own.</text>
+
+  <g font-size="17" font-weight="600">
+    <rect class="chip" x="292" y="234" width="148" height="34" rx="17"/>
+    <text class="chiptext" x="366" y="257" text-anchor="middle">Claude Desktop</text>
+    <rect class="chip" x="450" y="234" width="132" height="34" rx="17"/>
+    <text class="chiptext" x="516" y="257" text-anchor="middle">Claude Code</text>
+    <rect class="chip" x="592" y="234" width="90" height="34" rx="17"/>
+    <text class="chiptext" x="637" y="257" text-anchor="middle">Cursor</text>
+    <rect class="chip" x="692" y="234" width="112" height="34" rx="17"/>
+    <text class="chiptext" x="748" y="257" text-anchor="middle">Windsurf</text>
+    <rect class="chip" x="814" y="234" width="168" height="34" rx="17"/>
+    <text class="chiptext" x="898" y="257" text-anchor="middle">any MCP client</text>
+  </g>
+</svg>

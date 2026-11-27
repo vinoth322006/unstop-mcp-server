@@ -1,0 +1,22 @@
+name: Feature request
+description: Something you'd like to ask your AI assistant about Unstop, or a better way to do it.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: ask
+    attributes:
+      label: What would you like to ask or do?
+      description: Write it the way you'd ask your assistant.
+      placeholder: '"Which of my registrations still need a team member?"'
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it matter to you?
+      description: What you do today instead, and what's hard about it.
+  - type: textarea
+    id: where
+    attributes:
+      label: Where is this on unstop.com? (optional)
+      description: A link to the page that shows this information or does this action helps a lot.

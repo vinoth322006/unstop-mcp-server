@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 
 from unstop_mcp.auth.session import DEFAULT_TENANT
-from unstop_mcp.cli._ui import _c, _runtime, _settings, _short_date, fail, ok, warn
+from unstop_mcp.cli._ui import _c, _money, _runtime, _settings, _short_date, fail, ok, warn
 from unstop_mcp.errors import UnstopError
 
 
@@ -18,7 +18,7 @@ async def _search(args: argparse.Namespace) -> int:
             return 0
         print(f"\n{res.total:,} results" + (f" for {' '.join(args.query)!r}" if args.query else "") + "\n")
         for i, o in enumerate(res.results, 1):
-            prize = f" · ₹{o.total_cash_prize:,.0f}" if o.total_cash_prize else ""
+            prize = f" · {_money(o.total_cash_prize, o.prize_currency)}" if o.total_cash_prize else ""
             team = f" · team {o.team_size}" if o.team_size else ""
             print(f"{_c('1', f'{i:>2}. {o.title}')}  {_c('2', o.organisation or '')}")
             print(f"    {o.type} · closes {_short_date(o.registration_deadline)} ({o.time_left or '-'}){prize}{team}")

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-24 -24 1048 408" width="1048" height="408" role="img" aria-labelledby="t d">
+  <title id="t">How Unstop MCP works</title>
+  <desc id="d">Your AI app talks to unstop-mcp over MCP. unstop-mcp runs on your computer and calls unstop.com over HTTPS. You sign in on a local browser page, so your one-time code never goes through the chat.</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .bg { fill: #ffffff; stroke: #e1e7f2; stroke-width: 1.5; }
+    .box { fill: #f7f9fd; stroke: #cfd8ea; stroke-width: 1.5; }
+    .main { fill: #f3f7ff; stroke: #1c4ed8; stroke-width: 2; }
+    .h { fill: #0b1b3f; font-size: 21px; font-weight: 700; }
+    .s { fill: #56637d; font-size: 15.5px; }
+    .li { fill: #2b3854; font-size: 15.5px; }
+    .tick { fill: #1c4ed8; }
+    .arrow { stroke: #7d8bab; stroke-width: 2; fill: none; }
+    .head { fill: #7d8bab; }
+    .lbl { fill: #56637d; font-size: 14px; font-weight: 600; }
+    .dash { stroke: #7d8bab; stroke-width: 2; stroke-dasharray: 6 6; fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b1020; stroke: #222c47; }
+      .box { fill: #111a33; stroke: #2a3760; }
+      .main { fill: #12204a; stroke: #6f95ff; }
+      .h { fill: #f2f5ff; }
+      .s { fill: #9aa8c7; }
+      .li { fill: #cfd8ee; }
+      .tick { fill: #8fb0ff; }
+      .arrow, .dash { stroke: #6c7a9c; }
+      .head { fill: #6c7a9c; }
+      .lbl { fill: #9aa8c7; }
+    }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path class="head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="-23" y="-23" width="1046" height="406" rx="22"/>
+
+  <!-- AI app -->
+  <rect class="box" x="10" y="40" width="200" height="150" rx="16"/>
+  <text class="h" x="110" y="92" text-anchor="middle">Your AI app</text>
+  <text class="s" x="110" y="122" text-anchor="middle">Claude Desktop</text>
+  <text class="s" x="110" y="144" text-anchor="middle">Claude Code · Cursor</text>
+  <text class="s" x="110" y="166" text-anchor="middle">Windsurf · any MCP client</text>
+
+  <!-- unstop-mcp -->
+  <rect class="main" x="290" y="16" width="420" height="198" rx="18"/>
+  <text class="h" x="318" y="54">unstop-mcp</text>
+  <text class="s" x="684" y="54" text-anchor="end">runs on your computer</text>
+  <g class="li">
+    <circle class="tick" cx="324" cy="85" r="4"/><text x="338" y="90">41 tools in 5 groups; load only what you need</text>
+    <circle class="tick" cx="324" cy="115" r="4"/><text x="338" y="120">Cache, retries, circuit breaker, rate limits</text>
+    <circle class="tick" cx="324" cy="145" r="4"/><text x="338" y="150">Your session is encrypted on disk</text>
+    <circle class="tick" cx="324" cy="175" r="4"/><text x="338" y="180">Phone numbers and teammates' emails filtered out</text>
+  </g>
+
+  <!-- unstop.com -->
+  <rect class="box" x="790" y="40" width="200" height="150" rx="16"/>
+  <text class="h" x="890" y="100" text-anchor="middle">unstop.com</text>
+  <text class="s" x="890" y="128" text-anchor="middle">the same API the</text>
+  <text class="s" x="890" y="150" text-anchor="middle">website uses</text>
+
+  <!-- arrows -->
+  <path class="arrow" d="M216 115 H284" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text class="lbl" x="250" y="102" text-anchor="middle">MCP</text>
+  <path class="arrow" d="M716 115 H784" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text class="lbl" x="750" y="102" text-anchor="middle">HTTPS</text>
+
+  <!-- sign-in page -->
+  <path class="dash" d="M500 220 V262"/>
+  <rect class="box" x="290" y="268" width="420" height="80" rx="16"/>
+  <text class="h" x="500" y="302" text-anchor="middle" style="font-size:19px">Sign-in page in your browser</text>
+  <text class="s" x="500" y="328" text-anchor="middle">Your one-time code goes here, never into the chat</text>
+</svg>

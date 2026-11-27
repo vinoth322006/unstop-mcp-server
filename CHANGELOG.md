@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- **Fixed:** `unstop-mcp search` printed every prize in rupees. A US$80,000 prize showed as ₹80,000. Prizes now
+  show in their own currency (₹, $, €, £, or the currency code).
+- **Repo page:** new README with a banner, a real terminal demo and a how-it-works diagram. Added CONTRIBUTING,
+  SECURITY (private vulnerability reporting), a code of conduct, issue and pull request templates, and Dependabot.
+  `ANALYSIS.md` moved to `docs/`.
+- **Releases:** release notes now come from this changelog, with a "which file do I need?" table.
+
 ## 1.5.0 — 2026-11-27 (modular, runs everywhere)
 
 **Pick your tools**
@@ -23,6 +32,8 @@
 - Line endings are fixed by `.gitattributes`. `get.sh`, `install.sh` and the `Dockerfile` had Windows line endings,
   which break `curl … | sh` and Docker builds. A test now guards this.
 - The full offline suite (268 tests) passes on Python 3.11, 3.12 and 3.13.
+- The Windows release build no longer depends on optional packages being installed (PyInstaller was pulling in
+  the MCP SDK's own developer CLI, which exits without `typer`). CI now runs the release build on every push.
 
 ## 1.4.1 — 2026-11-27 (reliability pass)
 

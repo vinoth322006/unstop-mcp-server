@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security problem
+    url: https://github.com/vinoth322006/unstop-mcp-server/security/advisories/new
+    about: Please report security issues privately, not as a public issue.
+  - name: Install help
+    url: https://github.com/vinoth322006/unstop-mcp-server/blob/master/INSTALL.md
+    about: Every install option, step by step, plus how to check your install.

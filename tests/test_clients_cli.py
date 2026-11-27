@@ -147,3 +147,28 @@ def test_claude_code_gets_env_flags(monkeypatch):
     add = calls[-1]
     assert add[:5] == ("mcp", "add", "--scope", "user", "-e") and add[5] == "UNSTOP_MCP_TOOLSETS=discover"
     assert add[6] == "unstop" and add[7] == "--"
+
+
+def test_prizes_show_their_own_currency():
+    from unstop_mcp.cli._ui import _money
+
+    assert _money(80000, "USD") == "$80,000"  # a US-dollar prize must not be printed as rupees
+    assert _money(1500000, "INR") == "₹1,500,000"
+    assert _money(5000, None) == "₹5,000"
+    assert _money(2500, "aed") == "AED 2,500"
+
+
+def test_release_notes_come_from_the_changelog():
+    import importlib.util
+    from pathlib import Path
+
+    path = Path(__file__).resolve().parent.parent / "packaging" / "release_notes.py"
+    spec = importlib.util.spec_from_file_location("release_notes", path)
+    assert spec and spec.loader
+    rn = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(rn)
+    log = "# Changelog\n\n## 2.0.0 — 2027-01-01 (big)\n\n- New thing\n\n## 1.9.0 — 2026-12-01\n\n- Old thing\n"
+    out = rn.notes("v2.0.0", log)
+    assert out.startswith("- New thing") and "Old thing" not in out
+    assert "unstop-mcp-2.0.0.mcpb" in out and "ghcr.io/vinoth322006/unstop-mcp:v2.0.0" in out
+    assert "See [CHANGELOG.md]" in rn.notes("v3.0.0", log)  # unknown version still gets a useful body

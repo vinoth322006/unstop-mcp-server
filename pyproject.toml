@@ -8,7 +8,22 @@ version = "1.5.0"
 description = "Authenticated Model Context Protocol server for Unstop (hackathons, competitions, jobs, internships)"
 readme = "README.md"
 license = "MIT"
+authors = [{ name = "Vinoth P" }]
 requires-python = ">=3.11"
+keywords = ["mcp", "model-context-protocol", "unstop", "hackathons", "internships", "jobs", "claude", "ai-assistant"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Education",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
 dependencies = [
     "mcp>=2.3.0,<3",
     "httpx>=0.27,<1",
@@ -30,6 +45,12 @@ dev = [
 
 [project.scripts]
 unstop-mcp = "unstop_mcp.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/vinoth322006/unstop-mcp-server"
+Documentation = "https://github.com/vinoth322006/unstop-mcp-server/blob/master/INSTALL.md"
+Changelog = "https://github.com/vinoth322006/unstop-mcp-server/blob/master/CHANGELOG.md"
+Issues = "https://github.com/vinoth322006/unstop-mcp-server/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/unstop_mcp"]

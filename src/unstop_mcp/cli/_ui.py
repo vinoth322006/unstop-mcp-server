@@ -87,3 +87,13 @@ def _short_date(value: str | None) -> str:
 
     dt = parse_dt(value)
     return dt.strftime("%d %b %Y") if dt else "-"
+
+
+_CURRENCY_SYMBOLS = {"INR": "₹", "USD": "$", "EUR": "€", "GBP": "£"}
+
+
+def _money(amount: float, currency: str | None) -> str:
+    """₹80,000 / $80,000 / AED 80,000. Unstop lists prizes in the organiser's currency, so never assume rupees."""
+    code = (currency or "INR").upper()
+    symbol = _CURRENCY_SYMBOLS.get(code)
+    return f"{symbol}{amount:,.0f}" if symbol else f"{code} {amount:,.0f}"

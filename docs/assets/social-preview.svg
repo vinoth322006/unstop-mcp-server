@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <!-- Source for social-preview.png (upload it in the repo's Settings → Social preview). -->
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e1a3d"/>
+      <stop offset="1" stop-color="#1c4ed8"/>
+    </linearGradient>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2" fill="#ffffff" opacity=".08"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#dots)"/>
+
+  <g transform="translate(110 150) scale(0.86)">
+    <rect width="256" height="256" rx="56" fill="#ffffff"/>
+    <path d="M74 62 V132 A54 54 0 0 0 182 132 V62 H152 V132 A24 24 0 0 1 104 132 V62 Z" fill="#1c4ed8"/>
+  </g>
+
+  <text x="380" y="236" font-size="92" font-weight="800" fill="#ffffff" letter-spacing="-2">Unstop MCP</text>
+  <text x="384" y="300" font-size="34" fill="#dbe5ff">Hackathons, internships, jobs and competitions,</text>
+  <text x="384" y="344" font-size="34" fill="#dbe5ff">right inside your AI assistant.</text>
+
+  <g font-size="22" font-weight="600" fill="#ffffff">
+    <rect x="384" y="384" width="178" height="44" rx="22" fill="#ffffff" fill-opacity=".14"/>
+    <text x="473" y="414" text-anchor="middle">Claude Desktop</text>
+    <rect x="574" y="384" width="104" height="44" rx="22" fill="#ffffff" fill-opacity=".14"/>
+    <text x="626" y="414" text-anchor="middle">Cursor</text>
+    <rect x="690" y="384" width="130" height="44" rx="22" fill="#ffffff" fill-opacity=".14"/>
+    <text x="755" y="414" text-anchor="middle">Windsurf</text>
+    <rect x="832" y="384" width="130" height="44" rx="22" fill="#ffffff" fill-opacity=".14"/>
+    <text x="897" y="414" text-anchor="middle">41 tools</text>
+  </g>
+
+  <text x="110" y="560" font-size="24" fill="#b8c8f5">github.com/vinoth322006/unstop-mcp-server</text>
+  <text x="1170" y="560" font-size="24" fill="#b8c8f5" text-anchor="end">MIT · Windows · macOS · Linux</text>
+</svg>

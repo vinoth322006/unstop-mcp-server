@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 468" width="1000" height="468" role="img" aria-labelledby="t d">
+  <title id="t">unstop-mcp search in a terminal</title>
+  <desc id="d">Real output of: unstop-mcp search AI hackathon --type hackathons --sort prize --limit 4, captured on 27 Nov 2026.</desc>
+  <style>
+    text { font-family: "Cascadia Mono", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; font-size: 14.5px; white-space: pre; fill: #d6deeb; }
+    .prompt { fill: #7ee787; }
+    .cmd { fill: #ffffff; }
+    .b { fill: #ffffff; font-weight: 700; }
+    .dim { fill: #8b98b5; }
+    .url { fill: #79a8ff; }
+    .bar { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 13px; fill: #8b98b5; }
+  </style>
+  <rect width="1000" height="468" rx="14" fill="#0b1224"/>
+  <rect width="1000" height="38" rx="14" fill="#141d36"/>
+  <rect y="24" width="1000" height="14" fill="#141d36"/>
+  <circle cx="22" cy="19" r="6" fill="#ff5f57"/><circle cx="42" cy="19" r="6" fill="#febc2e"/><circle cx="62" cy="19" r="6" fill="#28c840"/>
+  <text class="bar" x="500" y="24" text-anchor="middle" style="white-space:normal">unstop-mcp search</text>
+
+  <g transform="translate(24 70)" xml:space="preserve">
+    <text y="0"><tspan class="prompt">$ </tspan><tspan class="cmd">unstop-mcp search AI hackathon --type hackathons --sort prize --limit 4</tspan></text>
+    <text y="34">61 results for 'AI hackathon'</text>
+    <text y="68"><tspan class="b"> 1. Anna AI OS Founding Builder Challenge 2026</tspan>  <tspan class="dim">Talentsec Technology (Hong Kong) Limited</tspan></text>
+    <text y="90">    hackathons · closes 30 Nov 2026 (2 days left) · $80,000 · team solo</text>
+    <text y="112" class="url">    https://unstop.com/hackathons/anna-ai-os-founding-builder-challenge-2026-…</text>
+    <text y="146"><tspan class="b"> 2. Galuxium Nexus V3: The Global AI, Autonomous Systems &amp; Venture SaaS Championship</tspan>  <tspan class="dim">Galuxium</tspan></text>
+    <text y="168">    hackathons · closes 31 Jul 2027 (8 months left) · ₹1,500,000 · team 1-3</text>
+    <text y="190" class="url">    https://unstop.com/hackathons/galuxium-nexus-v3-the-global-ai-autonomous-…</text>
+    <text y="224"><tspan class="b"> 3. 404 Hackathon</tspan>  <tspan class="dim">haX baby</tspan></text>
+    <text y="246">    hackathons · closes 28 Nov 2026 (39 minutes left) · ₹1,085,000 · team 1-3</text>
+    <text y="268" class="url">    https://unstop.com/hackathons/404-hackathon-hax-baby-1793392</text>
+    <text y="302"><tspan class="b"> 4. LightHouse - Hackathon</tspan>  <tspan class="dim">Chandigarh University (CU), Ajitgarh, Punjab</tspan></text>
+    <text y="324">    hackathons · closes 31 Dec 2026 (1 month left) · ₹510,000 · team 2-5</text>
+    <text y="346" class="url">    https://unstop.com/hackathons/lighthouse-hackathon-chandigarh-university-…</text>
+    <text y="372"><tspan class="prompt">$ </tspan><tspan class="cmd">▍</tspan></text>
+  </g>
+</svg>

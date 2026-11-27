@@ -1,0 +1,71 @@
+name: Bug report
+description: Something doesn't work as described.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please run `unstop-mcp doctor` first; it often says exactly what to fix.
+
+        **Never paste one-time codes, API keys, session files or `secret.key`.** For security problems, use
+        [private reporting](https://github.com/vinoth322006/unstop-mcp-server/security/advisories/new) instead.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+      placeholder: I asked Claude "What are my upcoming Unstop deadlines?" and got "…"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `unstop-mcp --version`
+      placeholder: unstop-mcp 1.5.0
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How did you install it?
+      options:
+        - Claude Desktop extension (.mcpb)
+        - One-line installer (get.ps1 / get.sh)
+        - Portable .exe
+        - uv / pipx / pip
+        - From source
+        - Docker
+    validations:
+      required: true
+  - type: dropdown
+    id: app
+    attributes:
+      label: AI app
+      options:
+        - Claude Desktop
+        - Claude Code
+        - Cursor
+        - Windsurf
+        - Terminal only (unstop-mcp commands)
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: Windows 11 / macOS 15 / Ubuntu 24.04
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Output of `unstop-mcp doctor`
+      description: It contains no secrets, but check before pasting.
+      render: text
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error message or logs (optional)
+      render: text
