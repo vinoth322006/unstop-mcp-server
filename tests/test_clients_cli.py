@@ -172,3 +172,5 @@ def test_release_notes_come_from_the_changelog():
     assert out.startswith("- New thing") and "Old thing" not in out
     assert "unstop-mcp-2.0.0.mcpb" in out and "ghcr.io/vinoth322006/unstop-mcp:v2.0.0" in out
     assert "See [CHANGELOG.md]" in rn.notes("v3.0.0", log)  # unknown version still gets a useful body
+    wrapped = "- First line\n  continues here.\n  - nested item\n\n| a | b |\n|---|---|\n"
+    assert rn.unwrap(wrapped) == "- First line continues here.\n  - nested item\n\n| a | b |\n|---|---|"

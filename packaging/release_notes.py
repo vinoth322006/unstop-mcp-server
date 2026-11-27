@@ -34,11 +34,27 @@ def changelog_section(text: str, version: str) -> str:
     return match.group(1).strip() if match else ""
 
 
+_BLOCK_START = re.compile(r"^\s*(?:[-*+] |\d+\. |#|\||```|>)")
+
+
+def unwrap(markdown: str) -> str:
+    """Join hard-wrapped lines. Release pages show every newline as a line break, unlike README files."""
+    out: list[str] = []
+    for line in markdown.splitlines():
+        prev = out[-1] if out else ""
+        joinable = prev.strip() and not prev.lstrip().startswith(("|", "#", "```"))
+        if line.strip() and joinable and not _BLOCK_START.match(line):
+            out[-1] = f"{prev.rstrip()} {line.strip()}"
+        else:
+            out.append(line)
+    return "\n".join(out)
+
+
 def notes(version: str, changelog: str) -> str:
     version = version.removeprefix("v")
     body = changelog_section(changelog, version) or f"See [CHANGELOG.md]({REPO}/blob/master/CHANGELOG.md)."
     raw = "https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/master"
-    return f"{body}\n\n{DOWNLOADS.format(v=version, raw=raw, repo=REPO)}"
+    return unwrap(f"{body}\n\n{DOWNLOADS.format(v=version, raw=raw, repo=REPO)}") + "\n"
 
 
 if __name__ == "__main__":
