@@ -1,0 +1,22 @@
+services:
+  unstop-mcp:
+    build: .
+    image: unstop-mcp:1.5.0
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      UNSTOP_MCP_TRANSPORT: http
+      UNSTOP_MCP_HOST: 0.0.0.0
+    ports:
+      - "127.0.0.1:8000:8000"   # put a TLS reverse proxy (Caddy/nginx) in front for public access
+    volumes:
+      - unstop-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: [ALL]
+
+volumes:
+  unstop-data:

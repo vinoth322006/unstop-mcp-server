@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "unstop": {
+      "command": "C:\\path\\to\\unstop-mcp-server\\.venv\\Scripts\\unstop-mcp.exe",
+      "args": ["serve"],
+      "env": {
+        "UNSTOP_MCP_LOG_LEVEL": "WARNING"
+      }
+    }
+  }
+}

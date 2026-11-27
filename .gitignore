@@ -1,19 +1,20 @@
-# Environments
+.venv/
 venv/
-env/
-ENV/
-env.bak/
-venv.bak/
-
-# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*$py.class
-
-# IDEs
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.env
+# runtime secrets, never commit
+*.session
+secret.key
+api_keys.json
 .vscode/
 .idea/
-
-# OS generated files
 .DS_Store
 Thumbs.db

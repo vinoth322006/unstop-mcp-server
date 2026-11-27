@@ -1,0 +1,56 @@
+{
+  "manifest_version": "0.3",
+  "name": "unstop-mcp",
+  "display_name": "Unstop",
+  "version": "0.0.0",
+  "description": "Find hackathons, internships, jobs and competitions on Unstop, and track your registrations and deadlines.",
+  "long_description": "Ask Claude about Unstop: search live listings, compare them, check your eligibility, see what's due, get Unstop's recommendations for you, and save searches that alert you to new listings. To use your account, just ask Claude to sign you in: a secure page opens in your browser and your one-time code never goes through the chat.",
+  "author": {
+    "name": "Vinoth P",
+    "url": "https://github.com/vinoth322006"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vinoth322006/unstop-mcp-server"
+  },
+  "homepage": "https://github.com/vinoth322006/unstop-mcp-server",
+  "documentation": "https://github.com/vinoth322006/unstop-mcp-server#readme",
+  "support": "https://github.com/vinoth322006/unstop-mcp-server/issues",
+  "icon": "icon.png",
+  "server": {
+    "type": "binary",
+    "entry_point": "server/unstop-mcp.exe",
+    "mcp_config": {
+      "command": "${__dirname}/server/unstop-mcp.exe",
+      "args": ["serve"],
+      "env": {
+        "UNSTOP_MCP_LOG_LEVEL": "WARNING",
+        "UNSTOP_MCP_ENABLE_WRITE_TOOLS": "${user_config.enable_watchlist_changes}",
+        "UNSTOP_MCP_TOOLSETS": "${user_config.toolsets}"
+      }
+    }
+  },
+  "user_config": {
+    "enable_watchlist_changes": {
+      "type": "boolean",
+      "title": "Allow changes to your account",
+      "description": "Let Claude register you, manage your team and edit your watchlist (it always asks first).",
+      "default": true,
+      "required": false
+    },
+    "toolsets": {
+      "type": "string",
+      "title": "Tool groups",
+      "description": "Which tools to load: all, or a comma list of discover, account, alerts, registration, teams.",
+      "default": "all",
+      "required": false
+    }
+  },
+  "tools": [],
+  "prompts": [],
+  "keywords": ["unstop", "hackathons", "internships", "jobs", "competitions", "students", "india"],
+  "license": "MIT",
+  "compatibility": {
+    "platforms": ["win32"]
+  }
+}

@@ -1,0 +1,10 @@
+.venv
+.git
+.env
+tests
+**/__pycache__
+.pytest_cache
+.ruff_cache
+*.session
+secret.key
+api_keys.json
