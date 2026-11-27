@@ -29,7 +29,15 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: "22" }
       - run: pip install . build pyinstaller==6.22.3
-      - run: python packaging/build_release.py
+      - name: Build release files
+        # On failure the last lines of output become an annotation (readable without signing in).
+        shell: bash
+        run: |
+          set -o pipefail
+          if ! python packaging/build_release.py 2>&1 | tee build.log; then
+            msg=$(grep -v '^  \$ ' build.log | tail -25 | sed 's/%/%25/g' | tr '\r\n' '  ' | cut -c1-4000)
+            echo "::error title=release build failed::$msg"; exit 1
+          fi
       - uses: actions/upload-artifact@v4
         with: { name: windows, path: dist/release/* }
 

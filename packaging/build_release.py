@@ -46,15 +46,28 @@ def build_python() -> None:
     run([sys.executable, "-m", "build", "--outdir", str(OUT)])
 
 
+def _not_mcp_cli(name: str) -> bool:
+    # mcp.cli is the SDK's own developer CLI. It needs the optional `typer` package and calls
+    # sys.exit(1) on import when typer is missing, which aborts PyInstaller. The server never uses it.
+    return not (name == "mcp.cli" or name.startswith("mcp.cli."))
+
+
+def mcp_modules() -> list[str]:
+    from PyInstaller.utils.hooks import collect_submodules
+
+    return collect_submodules("mcp", filter=_not_mcp_cli)
+
+
 def pyinstaller(onefile: bool, name: str, dist: Path) -> Path:
     args = [
         sys.executable, "-m", "PyInstaller", str(PKG / "entry.py"),
         "--name", name, "--console", "--noconfirm", "--clean",
         "--icon", str(PKG / "icon.ico"),
         "--distpath", str(dist), "--workpath", str(WORK / f"pyi-{name}"), "--specpath", str(WORK),
-        "--collect-submodules", "unstop_mcp", "--collect-submodules", "mcp", "--collect-submodules", "uvicorn",
+        "--collect-submodules", "unstop_mcp", "--collect-submodules", "uvicorn",
+        *[arg for mod in mcp_modules() for arg in ("--hidden-import", mod)],
         "--copy-metadata", "mcp", "--copy-metadata", "httpx", "--copy-metadata", "pydantic",
-        "--exclude-module", "tkinter", "--exclude-module", "pytest",
+        "--exclude-module", "tkinter", "--exclude-module", "pytest", "--exclude-module", "mcp.cli",
         "--onefile" if onefile else "--onedir",
     ]
     run(args)
