@@ -69,10 +69,10 @@ jobs:
       - name: Container starts and reports healthy
         # Docker picks a free host port; failures are written as annotations (readable without signing in).
         run: |
-          if ! out=$(docker run -d --name t -p 127.0.0.1::8000 -e UNSTOP_MCP_SECRET_KEY=ci-test-secret unstop-mcp:ci 2>&1); then
+          if ! out=$(docker run -d --name unstop-ci -p 127.0.0.1::8000 -e UNSTOP_MCP_SECRET_KEY=ci-test-secret unstop-mcp:ci 2>&1); then
             echo "::error title=docker run failed::${out//$'\n'/ }"; exit 1
           fi
-          port=$(docker port t 8000/tcp | head -1 | sed 's/.*://')
+          port=$(docker port unstop-ci 8000/tcp | head -1 | sed 's/.*://')
           for i in $(seq 1 30); do curl -fs "http://127.0.0.1:$port/healthz" && exit 0; sleep 1; done
-          logs=$(docker logs t 2>&1 | tail -15)
+          logs=$(docker logs unstop-ci 2>&1 | tail -15)
           echo "::error title=container never became healthy::${logs//$'\n'/ }"; exit 1
