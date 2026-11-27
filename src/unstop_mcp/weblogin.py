@@ -14,6 +14,8 @@ import asyncio
 import html
 import logging
 import secrets
+import socket
+import socketserver
 import threading
 import time
 import webbrowser
@@ -29,6 +31,20 @@ log = logging.getLogger(__name__)
 
 _MAX_BODY = 4096
 _MAX_CODE_ATTEMPTS = 5
+
+
+class _LoginServer(ThreadingHTTPServer):
+    """The sign-in page's server. It must own its port alone: the one-time code is posted to it."""
+
+    allow_reuse_address = False  # HTTPServer turns SO_REUSEADDR on, which lets another socket share the port
+    daemon_threads = True
+
+    def server_bind(self) -> None:
+        if hasattr(socket, "SO_EXCLUSIVEADDRUSE"):  # Windows: refuse any other socket on this port
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+        socketserver.TCPServer.server_bind(self)  # skip HTTPServer's getfqdn() lookup, which can stall
+        host, port = self.server_address[:2]
+        self.server_name, self.server_port = str(host), int(port)
 
 _PAGE = """<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign in to Unstop · Unstop MCP</title>
@@ -113,8 +129,7 @@ class BrowserLogin:
             def do_POST(self) -> None:  # noqa: N802
                 login._dispatch(self, "POST")
 
-        self._server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
-        self._server.daemon_threads = True
+        self._server = _LoginServer(("127.0.0.1", 0), Handler)
         port = self._server.server_address[1]
         self.url = f"http://127.0.0.1:{port}/{self.token}/"
         threading.Thread(target=self._serve, name="unstop-browser-login", daemon=True).start()

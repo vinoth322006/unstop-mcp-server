@@ -48,7 +48,9 @@ class FakeAuth:
 
 
 def _nonce(html: str) -> str:
-    return re.search(r'name="nonce" value="([^"]+)"', html).group(1)
+    found = re.search(r'name="nonce" value="([^"]+)"', html)
+    assert found, f"expected the sign-in form, got: {re.sub(r'<[^>]+>', ' ', html.split('<body>')[-1])[:200]!r}"
+    return found.group(1)
 
 
 async def test_browser_login_full_flow(runtime):
