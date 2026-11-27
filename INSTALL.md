@@ -34,7 +34,7 @@ To update or remove it: **Settings → Extensions → Unstop**.
 Open **PowerShell** and paste:
 
 ```powershell
-irm https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/main/get.ps1 | iex
+irm https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/master/get.ps1 | iex
 ```
 
 This downloads the standalone program, **verifies its checksum**, adds `unstop-mcp` to your PATH and starts the
@@ -46,7 +46,7 @@ guided setup, which signs you in and connects Claude Desktop, Claude Code, Curso
 ## C. One-line installer (macOS / Linux)
 
 ```sh
-curl -LsSf https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/main/get.sh | sh
+curl -LsSf https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/master/get.sh | sh
 ```
 
 It uses `uv` if you have it, otherwise `pipx`, otherwise `pip --user`, and then runs `unstop-mcp setup`.

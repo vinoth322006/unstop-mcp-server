@@ -21,13 +21,13 @@ Works with **Claude Desktop, Claude Code, Cursor and Windsurf**, and anything el
 **Windows, any app, no Python needed:**
 
 ```powershell
-irm https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/main/get.ps1 | iex
+irm https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/master/get.ps1 | iex
 ```
 
 **macOS / Linux:**
 
 ```sh
-curl -LsSf https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/main/get.sh | sh
+curl -LsSf https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/master/get.sh | sh
 ```
 
 There are also a portable `.exe`, `uv` / `pipx` / `pip`, a from-source script and Docker. See

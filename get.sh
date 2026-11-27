@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # Unstop MCP one-line installer for macOS / Linux:
-#   curl -LsSf https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/main/get.sh | sh
+#   curl -LsSf https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/master/get.sh | sh
 # Uses uv if available, else pipx, else pip --user. Then runs the guided setup.
 set -eu
 REPO="${UNSTOP_MCP_REPO:-vinoth322006/unstop-mcp-server}"

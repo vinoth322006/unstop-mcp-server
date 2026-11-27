@@ -1,7 +1,7 @@
 <#
   Unstop MCP one-line installer for Windows. No Python needed.
 
-    irm https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/main/get.ps1 | iex
+    irm https://raw.githubusercontent.com/vinoth322006/unstop-mcp-server/master/get.ps1 | iex
 
   It downloads the standalone unstop-mcp.exe from the latest GitHub release, verifies its SHA-256 checksum,
   installs it to %LOCALAPPDATA%\Programs\unstop-mcp, adds it to your PATH and starts the guided setup.
