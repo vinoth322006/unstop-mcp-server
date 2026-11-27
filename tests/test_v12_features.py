@@ -69,6 +69,7 @@ async def test_browser_login_full_flow(runtime):
             assert "Incorrect OTP" in page
             page = c.post(url + "verify", data={"nonce": n, "otp": "123456"}).text
             assert "signed in" in page.lower()
+            time.sleep(1.2)  # a late refresh must get the "expired" page, not a connection reset
             return c.get(url).status_code
 
     status_after = await asyncio.to_thread(drive)

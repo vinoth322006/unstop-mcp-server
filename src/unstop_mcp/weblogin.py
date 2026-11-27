@@ -138,7 +138,12 @@ class BrowserLogin:
         while not self.result.done() and time.monotonic() < self.deadline:
             self._server.handle_request()
         self._finish(None)
-        time.sleep(0.5)  # let the final page flush
+        # Keep answering briefly, so a refresh or late request gets the "link has expired" page instead of a
+        # connection reset (closing the socket with a queued connection resets it; macOS hits this reliably).
+        self._server.timeout = 0.2
+        grace_until = time.monotonic() + 2
+        while time.monotonic() < grace_until:
+            self._server.handle_request()
         self._server.server_close()
 
     def stop(self) -> None:
