@@ -21,7 +21,7 @@ jobs:
       - run: pip install -e ".[dev]"
       - run: ruff check src tests packaging
       - run: mypy src
-      - run: pytest -m "not live" -q
+      - run: pytest -m "not live" -q -rf  # failures also appear as annotations on the run page
       - name: CLI smoke test
         run: |
           unstop-mcp --version
